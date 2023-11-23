@@ -49,11 +49,11 @@ class HomeScreen extends StatelessWidget {
             //       'https://firebasestorage.googleapis.com/v0/b/shopapp-dc723.appspot.com/o/potato.jpg?alt=media&token=a41b785b-f712-4c24-bf8a-b40abec5a721',
             //   name: 'Potato',
             // ),
-            PlantItem(
-              imageUrl:
-                  'lib/assets/images/tomato.png',
-              name: 'Tomato',
-            ),
+            // PlantItem(
+            //   imageUrl:
+            //       'lib/assets/images/tomato.png',
+            //   name: 'Tomato',
+            // ),
             PlantItem(
               imageUrl:
                   'lib/assets/images/corn.png',

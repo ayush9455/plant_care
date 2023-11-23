@@ -6,6 +6,7 @@ import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:plant_care/Presentation/Screens/result_screen.dart';
 
 import 'package:tflite_v2/tflite_v2.dart';
 
@@ -46,8 +47,8 @@ class _UploadScreenState extends State<UploadScreen> {
   try {
     await Tflite.loadModel(
 
-      model: 'lib/assets/ml_models/grape.tflite',
-      labels: 'lib/assets/labels/grapes-labels.txt',
+      model: 'lib/assets/ml_models/${widget.title.toLowerCase()}.tflite',
+      labels: 'lib/assets/labels/${widget.title.toLowerCase()}.txt',
     );
 
 
@@ -76,8 +77,7 @@ detectImage(File imageFile) async {
   asynch: true
      
     );
-    print('okk');
-    print(prediction);
+  
     setState(() {
       _predictions = prediction!;
     });
@@ -163,12 +163,13 @@ detectImage(File imageFile) async {
                 )),
                 onPressed: imageFile == null
                     ? null
-                    : () {
-                      detectImage(imageFile!);
-                      // Navigator.of(context).push(MaterialPageRoute(
-                      //   builder: (context) => ResultScreen(
-                      //         imageFile: imageFile!,
-                      //       )));
+                    : () async{
+                      await detectImage(imageFile!);
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ResultScreen(
+                              imageFile: imageFile!,
+                              disease: _predictions[0]['label']),
+                            ));
                             } ,
                 child: const Text(
                   'Detect Disease',
