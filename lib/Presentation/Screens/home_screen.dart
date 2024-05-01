@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plant_care/Presentation/Screens/upload_screen.dart';
+import 'package:plant_care/Presentation/screens/upload_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,7 +14,9 @@ class HomeScreen extends StatelessWidget {
         shadowColor: Colors.transparent,
         centerTitle: true,
         title: const Text('Plant Care',
-            style: TextStyle(fontWeight: FontWeight.bold)),
+            style: TextStyle(fontWeight: FontWeight.bold, shadows: [
+              Shadow(color: Colors.grey, blurRadius: 4, offset: Offset(1, 1))
+            ])),
       ),
       body: Container(
         padding: const EdgeInsets.only(top: 90),
@@ -23,7 +25,7 @@ class HomeScreen extends StatelessWidget {
             begin: Alignment(0.00, -1.00),
             end: Alignment(0, 1),
             colors: [
-              Color.fromARGB(255, 4, 132, 36),
+              Color.fromARGB(255, 37, 170, 70),
               Color.fromARGB(0, 11, 138, 143)
             ],
           ),
@@ -35,8 +37,7 @@ class HomeScreen extends StatelessWidget {
               crossAxisCount: 2),
           children: const [
             PlantItem(
-              imageUrl:
-                  'lib/assets/images/appleimage.jpg',
+              imageUrl: 'lib/assets/images/appleimage.jpg',
               name: 'Apple',
             ),
             // PlantItem(
@@ -55,13 +56,11 @@ class HomeScreen extends StatelessWidget {
             //   name: 'Tomato',
             // ),
             PlantItem(
-              imageUrl:
-                  'lib/assets/images/corn.png',
+              imageUrl: 'lib/assets/images/corn.png',
               name: 'Corn',
             ),
             PlantItem(
-              imageUrl:
-                  'lib/assets/images/grapes.png',
+              imageUrl: 'lib/assets/images/grapes.png',
               name: 'Grapes',
             ),
             // PlantItem(
@@ -107,7 +106,7 @@ class PlantItem extends StatelessWidget {
       )),
       borderRadius: BorderRadius.circular(16),
       child: Container(
-        padding: const EdgeInsets.all(4),
+        padding: const EdgeInsets.all(2),
         child: Card(
           surfaceTintColor: Colors.white,
           child: Column(
@@ -119,11 +118,11 @@ class PlantItem extends StatelessWidget {
                   scale: 5,
                   fit: BoxFit.cover,
                 ),
-                // Image.network(
-                //   imageUrl,
-                //   scale: 5,
-                //   fit: BoxFit.cover,
-                // ),
+              // Image.network(
+              //   imageUrl,
+              //   scale: 5,
+              //   fit: BoxFit.cover,
+              // ),
               if (imageUrl == '')
                 Image.asset(
                   'lib/assets/images/potato_leaf.png',
@@ -136,11 +135,14 @@ class PlantItem extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Color(0xFF100E0E),
-                  fontSize: 24,
+                  fontSize: 22,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w400,
                   height: 0,
                 ),
+              ),
+              const SizedBox(
+                height: 4,
               )
             ],
           ),

@@ -6,7 +6,7 @@ import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:plant_care/Presentation/Screens/result_screen.dart';
+import 'package:plant_care/Presentation/screens/result_screen.dart';
 
 import 'package:tflite_v2/tflite_v2.dart';
 
@@ -44,49 +44,36 @@ class _UploadScreenState extends State<UploadScreen> {
   }
 
   loadModel() async {
-  try {
-    await Tflite.loadModel(
-
-      model: 'lib/assets/ml_models/${widget.title.toLowerCase()}.tflite',
-      labels: 'lib/assets/labels/${widget.title.toLowerCase()}.txt',
-    );
-
-
-  } catch (e) {
-    print('Error loading model: $e');
+    try {
+      await Tflite.loadModel(
+        model: 'lib/assets/ml_models/${widget.title.toLowerCase()}.tflite',
+        labels: 'lib/assets/labels/${widget.title.toLowerCase()}.txt',
+      );
+    } catch (e) {
+      print('Error loading model: $e');
+    }
   }
-}
 
+  detectImage(File imageFile) async {
+    try {
+      //  var appDir = await getTemporaryDirectory();
+      // var imagePath = join(appDir.path, basename(imageFile.path));
 
+      var prediction = await Tflite.runModelOnImage(
+          path: imageFile.path, // required
+          imageMean: 0.0, // defaults to 117.0
+          imageStd: 255.0, // defaults to 1.0
+          numResults: 1, // defaults to 5
+          threshold: 0.2, // defaults to 0.1
+          asynch: true);
 
-
-detectImage(File imageFile) async {
-  try {
-    
-    //  var appDir = await getTemporaryDirectory();
-    // var imagePath = join(appDir.path, basename(imageFile.path));
-
-
-    var prediction = await Tflite.runModelOnImage(
-      
-        path: imageFile.path,   // required
-  imageMean: 0.0,   // defaults to 117.0
-  imageStd: 255.0,  // defaults to 1.0
-  numResults:1,    // defaults to 5
-  threshold: 0.2,   // defaults to 0.1
-  asynch: true
-     
-    );
-  
-    setState(() {
-      _predictions = prediction!;
-    });
-  } catch (e) {
-    print('Error detecting image: $e');
+      setState(() {
+        _predictions = prediction!;
+      });
+    } catch (e) {
+      print('Error detecting image: $e');
+    }
   }
-}
-
-
 
   @override
   void initState() {
@@ -163,14 +150,14 @@ detectImage(File imageFile) async {
                 )),
                 onPressed: imageFile == null
                     ? null
-                    : () async{
-                      await detectImage(imageFile!);
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ResultScreen(
+                    : () async {
+                        await detectImage(imageFile!);
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => ResultScreen(
                               imageFile: imageFile!,
                               disease: _predictions[0]['label']),
-                            ));
-                            } ,
+                        ));
+                      },
                 child: const Text(
                   'Detect Disease',
                   style: TextStyle(color: Colors.black),
