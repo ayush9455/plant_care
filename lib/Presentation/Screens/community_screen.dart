@@ -9,7 +9,12 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _messageController = TextEditingController();
-  List<Map<String, dynamic>> _messages = [];
+  List<Map<String, dynamic>> _messages = [
+    // {
+    //   'text': 'Hi , I Have Got Issue In Cropping !',
+    //   'sender': 'Raju', // Replace with actual user name or id
+    // }
+  ];
 
   @override
   Widget build(BuildContext context) {

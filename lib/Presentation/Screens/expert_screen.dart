@@ -31,18 +31,32 @@ class ExpertsScreen extends StatelessWidget {
             ],
           ),
         ),
-        child: ListView.builder(
-          padding: EdgeInsets.zero,
-          itemCount: 5,
-          itemBuilder: (context, index) => PlantExpertCard(
-              name: 'Expert $index',
+        child: ListView(padding: EdgeInsets.zero, children: [
+          PlantExpertCard(
+              name: 'Durgesh Chaturvedi',
               expertise: 'Agronomist',
               onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => ChatScreen(),
                   ))),
-        ),
+          PlantExpertCard(
+              name: 'Dr. SK Singh',
+              expertise: 'Phd Agriculture',
+              onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChatScreen(),
+                  ))),
+          PlantExpertCard(
+              name: 'Dr. Ram Lakhan',
+              expertise: 'Phd* Agriculture , Agronomist',
+              onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChatScreen(),
+                  ))),
+        ]),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_care/Presentation/widgets/product_item.dart';
+import 'package:plant_care/fake_db.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({super.key});
@@ -32,12 +33,14 @@ class ProductScreen extends StatelessWidget {
         ),
         child: GridView.builder(
           padding: EdgeInsets.zero,
-          itemCount: 5,
+          itemCount: FakeDb.medicines.length,
           shrinkWrap: true,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2),
-          itemBuilder: (context, index) =>
-              ProductItem(name: 'Product $index', imageUrl: ''),
+          itemBuilder: (context, index) => ProductItem(
+              id: FakeDb.medicines[index].id,
+              name: FakeDb.medicines[index].name,
+              imageUrl: FakeDb.medicines[index].imageUrl),
         ),
       ),
     );

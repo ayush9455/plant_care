@@ -45,11 +45,10 @@ class HomeScreen extends StatelessWidget {
             //       'https://firebasestorage.googleapis.com/v0/b/shopapp-dc723.appspot.com/o/strawberry.png?alt=media&token=fa262da9-1d6b-4e3c-b2b7-cc47cb7b63b3',
             //   name: 'Strawberry',
             // ),
-            // PlantItem(
-            //   imageUrl:
-            //       'https://firebasestorage.googleapis.com/v0/b/shopapp-dc723.appspot.com/o/potato.jpg?alt=media&token=a41b785b-f712-4c24-bf8a-b40abec5a721',
-            //   name: 'Potato',
-            // ),
+            PlantItem(
+              imageUrl: 'lib/assets/images/potato.jpg',
+              name: 'Potato',
+            ),
             // PlantItem(
             //   imageUrl:
             //       'lib/assets/images/tomato.png',
