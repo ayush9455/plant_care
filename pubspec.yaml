@@ -36,11 +36,16 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   image_picker: ^1.0.4
-  image: ^4.1.3
+  image: ^4.1.7
 
   tflite_v2: ^1.0.0
   path_provider: ^2.1.1
   path: ^1.8.3
+  tflite_flutter: ^0.9.0
+  firebase_auth: ^4.19.5
+  firebase_core: ^2.31.0
+  google_sign_in: ^6.2.1
+  svg_flutter: ^0.0.1
 
 
 dev_dependencies:
@@ -69,6 +74,8 @@ flutter:
   assets:
     - lib/assets/images/medicines/
     - lib/assets/images/
+    - lib/assets/images/logo/
+    - lib/assets/images/plants/
     - lib/assets/labels/
     - lib/assets/ml_models/
 

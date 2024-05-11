@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:plant_care/Presentation/Screens/product_screen.dart';
 import 'package:plant_care/Presentation/screens/community_screen.dart';
 import 'package:plant_care/Presentation/screens/expert_screen.dart';
 import 'package:plant_care/Presentation/screens/home_screen.dart';
+import 'package:plant_care/services/auth_service.dart';
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({super.key});
@@ -28,6 +31,7 @@ class _BaseScreenState extends State<BaseScreen> {
 
   @override
   Widget build(BuildContext context) {
+    log(AuthService.user.toString());
     return Scaffold(
       body: _widgetOptions[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(

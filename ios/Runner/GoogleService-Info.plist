@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>883147489769-mt6dkkp8qlm4bi2numrouini44qi1fiu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.883147489769-mt6dkkp8qlm4bi2numrouini44qi1fiu</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>883147489769-6llfdn1l916qm7snkol7e2t34nqnv4kt.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBWrVAt7BuCUYAmCDsRx5kUgjdWXWRKfds</string>
+	<key>GCM_SENDER_ID</key>
+	<string>883147489769</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.plantCare</string>
+	<key>PROJECT_ID</key>
+	<string>plantcare-36516</string>
+	<key>STORAGE_BUCKET</key>
+	<string>plantcare-36516.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:883147489769:ios:7d282a3ba0439beb904b78</string>
+</dict>
+</plist>

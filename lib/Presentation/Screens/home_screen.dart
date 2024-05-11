@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:plant_care/Presentation/screens/upload_screen.dart';
+import 'package:plant_care/services/auth_service.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,11 +14,18 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
         shadowColor: Colors.transparent,
-        centerTitle: true,
-        title: const Text('Plant Care',
+        centerTitle: false,
+        title: Text(
+            'Hi ${AuthService.user?.displayName?.split(' ')[0] ?? 'User'}!',
             style: TextStyle(fontWeight: FontWeight.bold, shadows: [
               Shadow(color: Colors.grey, blurRadius: 4, offset: Offset(1, 1))
             ])),
+        actions: [
+          GestureDetector(
+            child: Icon(Icons.logout_rounded),
+            onTap: () => AuthService.logout(),
+          )
+        ],
       ),
       body: Container(
         padding: const EdgeInsets.only(top: 90),
